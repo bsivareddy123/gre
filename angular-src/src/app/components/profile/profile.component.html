@@ -1,0 +1,218 @@
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+  <div class="wrapper">
+    <app-header></app-header>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" >
+      <section class="content-header">
+
+      </section>
+      <div class="container">
+
+
+        <div *ngIf="user" class="container-fluid" id="page-body" style="position: relative; top: 50px;">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="box">
+                <div class="box-header">
+                  <h4>Profile Settings</h4>
+                  <hr>
+                </div>
+                <div class="box-body">
+                  <div class="container-fluid mt-20">
+                    <div class="row">
+                      <div class="text"  style="text-align: center;">
+                        <div class="dib" style="text-align: center">Subscription Plan
+                          <span class="label bg-success" style="font-size: 12px; margin-left: 5px;">{{user.subscriptionPlan}}</span>
+                        </div>
+                        <div class="dib ml-20 pl_20 bl" style="text-align: center">Subscription Expires on
+                          <span class="label label-danger">
+                            29-07-2018</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-8 col-sm-offset-2 mt-20">
+                        <div class="panel with-nav-tabs panel-primary" style="border: 1px solid #80808047;">
+                          <div class="panel-heading">
+                            <ul class="nav nav-tabs">
+                              <li class="active">
+                                <a href="#tab1primary" data-toggle="tab" aria-expanded="true">Edit Settings</a>
+                              </li>
+                              <li class="">
+                                <a href="#tab2primary" data-toggle="tab" aria-expanded="false">Change Password</a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="panel-body">
+                            <div class="tab-content">
+                              <div class="tab-pane fade active in" id="tab1primary">
+                                <div class="container">
+  
+                                  <div class="row">
+                          
+                                      <div class="col-md-4">
+                                          <ul class="nav nav-pills nav-stacked admin-menu" >
+                                              <li class="active"><a href="" data-target-id="profile"><i class="fa fa-user"></i> Profile</a></li>
+                                              <li><a href="" data-target-id="change-password"><i class="fa fa-lock"></i> Change Password</a></li>
+                                              <li><a href="" data-target-id="settings"><i class="fa fa-cog"></i> Settings</a></li>
+                                          </ul>
+                                      </div>
+                          
+                                      <div class="col-md-8  admin-content" id="profile">
+                                          <div class="panel panel-info" style="margin: 1em;">
+                                              <div class="panel-heading">
+                                                  <h3 class="panel-title">Name</h3>
+                                              </div>
+                                              <div class="panel-body">
+                                                 {{user.username}}
+                                              </div>
+                                          </div>
+                                          <div class="panel panel-info" style="margin: 1em;">
+                                              <div class="panel-heading">
+                                                  <h3 class="panel-title">Email</h3>
+                                              </div>
+                                              <div class="panel-body">
+                                                  {{user.email}}
+                                              </div>
+                                          </div>
+                                          <div class="panel panel-info" style="margin: 1em;">
+                                              <div class="panel-heading">
+                                                  <h3 class="panel-title">Last Password Change</h3>
+                          
+                                              </div>
+                                              <div class="panel-body">
+                                                  4 days Ago
+                                              </div>
+                                          </div>
+                          
+                                      </div>
+                             <div class="col-md-8  admin-content" id="settings">
+                                          <div class="panel panel-info" style="margin: 1em;">
+                                              <div class="panel-heading">
+                                                  <h3 class="panel-title">Notification</h3>
+                                              </div>
+                                              <div class="panel-body">
+                                                  <div class="label label-success">allowed</div>
+                                              </div>
+                                          </div>
+                                          <div class="panel panel-info" style="margin: 1em;">
+                                              <div class="panel-heading">
+                                                  <h3 class="panel-title">Newsletter</h3>
+                                              </div>
+                                              <div class="panel-body">
+                                                  <div class="badge">Monthly</div>
+                                              </div>
+                                          </div>
+                                          <div class="panel panel-info" style="margin: 1em;">
+                                              <div class="panel-heading">
+                                                  <h3 class="panel-title">Admin</h3>
+                          
+                                              </div>
+                                              <div class="panel-body">
+                                                   <div class="label label-success">yes</div>
+                                              </div>
+                                          </div>
+                          
+                                      </div>
+                          
+                                      <div class="col-md-8  admin-content" id="change-password">
+                                          <form action="/password" method="post">
+                                              <div class="panel panel-info" style="margin: 1em;">
+                                                  <div class="panel-heading">
+                                                      <h3 class="panel-title"><label for="new_password" class="control-label panel-title">New Password</label></h3>
+                                                  </div>
+                                                  <div class="panel-body">
+                                                      <div class="form-group">
+                                                          <div class="col-sm-10">
+                                                              <input type="password" class="form-control" name="password" id="new_password" >
+                                                          </div>
+                                                      </div>
+                          
+                                                  </div>
+                                              </div>
+                          
+                                       
+                                              <div class="panel panel-info" style="margin: 1em;">
+                                                  <div class="panel-heading">
+                                                      <h3 class="panel-title"><label for="confirm_password" class="control-label panel-title">Confirm password</label></h3>
+                                                  </div>
+                                                  <div class="panel-body">
+                                                      <div class="form-group">
+                                                          <div class="col-sm-10">
+                                                              <input type="password" class="form-control" name="password_confirmation" id="confirm_password" >
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                          
+                                     
+                                              <div class="panel panel-info border" style="margin: 1em;">
+                                                  <div class="panel-body">
+                                                      <div class="form-group">
+                                                          <div class="pull-left">
+                                                              <input type="submit" class="form-control btn btn-primary" name="submit" id="submit">
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                          
+                                          </form>
+                                      </div>
+                          
+                                  </div>
+                          </div>
+                              </div>
+                              <div class="tab-pane fade" id="tab2primary">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                  <form id="cpass" class="bs-example form-horizontal">
+                                    <div class="form-group">
+                                      <label class="">Current Password</label>
+                                      <div class="">
+                                        <input type="password" class="form-control" placeholder="Current Password" name="curpassword" id="curpass" required="true">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="">New Password</label>
+                                      <div class="">
+                                        <input type="password" class="form-control" placeholder="New Password" name="password" id="regpass" required="true">
+                                        <span id="regpassError"></span>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="">Confirm Password</label>
+                                      <div class="">
+                                        <input type="password" class="form-control" placeholder="Confirm Password" name="cpassword" id="conformPassword" required="true">
+                                      </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                      <div class="">
+                                        <button type="button" class="btn btn-success" id="changepassword">Change Password</button>
+                                      </div>
+                                    </div>
+                                    <div class="chnagepassalert text-center" style="display: none"></div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+   
+  </div>
+  <!-- ./wrapper -->
+
+</body>

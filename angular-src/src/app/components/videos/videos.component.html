@@ -1,0 +1,48 @@
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+  <div class="wrapper">
+      <app-header></app-header>
+     <!-- Content Wrapper. Contains page content -->
+     <div class="content-wrapper" id="content">
+			<section class="content">
+				<div class="container-fluid" id="page-body">
+          	<div class="box" style="min-height: 521px;">
+                <div class="box-header">
+                    <section class="content-header">
+                        <h1>Online Videos</h1>
+                        <hr>
+                    </section>
+                   
+                  <div class="col-md-1"></div>
+                  <div class="col-md-10">
+                    <div id="lessonsView" class="lessonPanel view" style="z-index: 102; display: block;">
+                       <div *ngFor ="let video of videoData">
+                           <div>
+                        <div class="appLesson checkpoint active" style="opacity: 1; transform: translateY(0px);">
+                            <div class="number">
+                                <span class="label label-danger">{{video.total_vedios}}</span>
+                            </div>
+                            <div class="name">{{video.title}}</div>
+                            <div class="rating">
+                              <a [routerLink]="['/videoqus', video.trackid]"><i class="fa fa-play-circle-o" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="info">
+                                <i class="icon"></i>
+                                <span>{{video.total_test_que}} questions</span>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                
+                </div>
+
+            </div>
+        </div>
+
+			</section>
+		</div>
+    
+  </div>
+  <!-- ./wrapper -->
+</body>

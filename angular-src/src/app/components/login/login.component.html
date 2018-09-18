@@ -1,0 +1,73 @@
+
+  <div class="hold-transition login-page">
+    <div class="col-md-7 col-lg-7">
+      <div class="gtimg">
+        <div class="center">
+          <img src="../assets/images/gt_soft_prep.png" class="img-responsive center">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 col-lg-5">
+      <div class="login-box">
+  
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+          <p class="login-box-msg">Sign in to start your session</p>
+          <form (submit)="onLoginSubmit()" id="register">
+          <div class="row myborder">
+             <div class="input-group margin-bottom-20">
+                 <span class="input-group-addon"><i class="fa fa-user-o mycolor"></i></span>
+                 <input size="60" maxlength="255" class="form-control change" placeholder="Enter User Name" [(ngModel)]="username" name="username" type="text">                                                       
+              </div>
+            
+             <div class="input-group margin-bottom-20">
+                 <span class="input-group-addon"><i class="fa fa-eye mycolor"></i></span>
+                 <input size="60" maxlength="255" class="form-control change" placeholder="Enter Password" [(ngModel)]="password" name="password" id="password" type="password">
+                 <div id="result"></div>                               
+              </div>
+              <div class="row">
+                  <div class="col-md-9">
+                      <div>
+                        <label class="container">
+                          <input type="checkbox">
+                            <span class="checkmark"></span>I agree to the terms
+                        </label>
+                        </div>
+                  </div>
+                  
+                  <!-- /.col -->
+                  <div class="col-md-3">
+                      <button [disabled]="loading" class="btn btn-primary">Login</button>
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <p *ngIf="loading">Please Wait....</p>
+         
+         </div>
+         </form>
+      
+          <div class="social-auth-links text-center">
+            <p style="text-align: center">- OR -</p>
+            <a class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+              Facebook</a>
+            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+              Google+</a>
+            <a href="#" class="btn btn-block btn-social btn-twitter btn-flat"><i class="fa fa-twitter"></i> Sign in using
+              Twitter</a>
+            <a href="#" class="btn btn-block btn-social btn-linkedin btn-flat"><i class="fa fa-linkedin"></i> Sign in using
+              Linkedin</a>
+          </div>
+          <!-- /.social-auth-links -->
+      
+          <a routerLink="/forgot" style="text-decoration: underline; color: black">I forgot my password</a><br>
+        
+        </div>
+        <!-- /.login-box-body -->
+      </div>
+    </div>
+  </div>  
+
+
+
+
+

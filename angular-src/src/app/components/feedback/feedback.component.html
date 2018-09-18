@@ -1,0 +1,86 @@
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+  <div class="wrapper">
+    <app-header></app-header>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="min-height: 637px; height: auto;">
+    <section class="content-header">
+        <h1>
+          
+          <small></small>
+        </h1>
+        <ol class="breadcrumb">
+          <li>
+            <a routerLink="/">
+              <i class="fa fa-dashboard"></i> Level</a>
+          </li>
+          <li class="active">feedBackForm</li>
+        </ol>
+      </section>
+                  <div class="container-fluid" id="page-body">
+                        <div class="col-lg-7 col-md-offset-2" id="form">
+                          <div class="box box-primary" style="position: relative;top: 35px;">
+                            <div class="box-header">
+                              <h3 class="box-title">FeedBack Form</h3>
+                            </div>
+                            <hr><br>
+                            <div class="box-body">
+                           <form (submit)="addFeedback()" class="bs-example form-horizontal">
+                              
+                                <div class="form-group">
+                                  <label class="col-lg-3 control-label">Name</label>
+                                  <div class="col-lg-5">
+                                    <input type="text" [(ngModel)]="name" name="name" placeholder="Enter Name" required="true" value="" class="form-control t-alphabets" id="name">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-lg-3 control-label">Email</label>
+                                  <div class="col-lg-5">
+                                    <input type="email" [(ngModel)]="email" name="email" placeholder="Enter E-mail"  class="form-control t-email">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-lg-3 control-label">Mobile</label>
+                                  <div class="col-lg-5">
+                                  <input type="number" [(ngModel)]="mobile" name="mobile" placeholder="Enter Mobile Number" required="true" class="form-control t-numeric">
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-lg-3 control-label">Subject</label>
+                                  <div class="col-lg-5">
+                                    <input type="text" [(ngModel)]="subject" name="subject" placeholder="Enter Subject" required="true" class="form-control">
+                                  </div>
+                                 </div>
+                                 <div class="form-group">
+                                  <label class="col-lg-3 control-label">Message</label>
+                                  <div class="col-lg-5">
+                                    <textarea name="message" [(ngModel)]="message" placeholder="Enter Message" required="true" class="form-control"></textarea>
+                                  </div>
+                                 </div>
+                                <div class="form-group box-footer">
+                                  <div class="col-lg-offset-3 col-lg-5">
+                                    <button type="submit" class="btn btn-sm btn-success">Submit FeedBack</button>
+                                    <button class="btn btn-sm btn-default" type="reset" style="border-color: #666;">Reset</button>
+                                  </div>
+                                </div>
+                               
+                                <p *ngIf="msg">Send your details Successfully.contact soon....... </p>
+                             </form>
+                         
+                           </div>
+                          
+                          </div>
+                        </div>
+                      </div>
+              
+                 
+        <!-- /.content -->
+        </div>
+    <!-- /.content-wrapper -->
+  
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+ 
+</body>

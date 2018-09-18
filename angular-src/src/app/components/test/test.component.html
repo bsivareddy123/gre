@@ -1,0 +1,225 @@
+<div class="row">
+  <div class="container" style="background: white;box-shadow: 0px 0px 23px 1px darkgrey;">
+      <!-- <p id="bg-text">Texas Review</p> -->
+     <div class="shadow" style="position: relative; padding: 41px;border-bottom: 1px solid #a9a9a947;">
+        <div class="col-md-8">
+        </div>
+        <div class="col-md-4 button">
+           <button class="btn" [ngClass]="{disabled:pager.index === 0}" (click)="goTo(pager.index - 1);">&laquo; Prev</button>
+           <button class="btn" *ngIf="pager.index + 1 != pager.count" (click)="goTo(pager.index + 1);">Next &raquo; </button>
+           <button class="btn" *ngIf="pager.index + 1 === pager.count" (click)="Timer();" type="submit">Finish&raquo; </button>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-md-4" style="padding: 20px;">
+           <p class="text-sm-center" style="font-size: 15px;">Section 1 of {{filteredQuestions.length}}</p>
+        </div>
+        <div class="col-md-4" style="padding: 20px;">
+           <p class="badge-info">Question {{pager.index + 1}} of {{pager.count}}.</p>
+        </div>
+        <div class="dib pl_20">										 	    
+              <span *ngIf="show">
+                  {{(minutesDisplay) && (minutesDisplay <= 59) ? minutesDisplay : '00'}} : {{(secondsDisplay) && (secondsDisplay <= 59) ? secondsDisplay : '00'}}
+              </span>
+              <button type="button" class="btn btn-primary" (click)="show=!show">
+                  <i class="fa fa-clock-o" style="margin: 0px 6px 0px 1px;"></i>{{show ? 'Hide' : 'Timer'}}</button>
+        </div>
+           <a class="btn btn-primary btn-outline btn-sm " (click)="calc=!calc">
+              <i class="fa fa-calculator"></i> {{calc ? 'Calculator' : 'Calculator'}}
+           </a>
+           <span *ngIf="calc">
+            <div class="calculator">
+              <div class="result">
+                  {{result}}
+              </div>
+             
+              <button class="button1" (click)="addToCalculation('7')">7</button>
+              <button  class="button1" (click)="addToCalculation('8')">8</button>
+              <button  class="button1" (click)="addToCalculation('9')">9</button>
+              <button  class="button1" (click)="calculate('/')">/</button>
+              <button class="button1" (click)="addToCalculation('4')">4</button>
+              <button class="button1" (click)="addToCalculation('5')">5</button>
+              <button class="button1" (click)="addToCalculation('6')">6</button>
+              <button class="button1" (click)="calculate('*')">X</button>
+              <button class="button1" (click)="addToCalculation('1')">1</button>
+              <button class="button1" (click)="addToCalculation('2')">2</button>
+              <button class="button1" (click)="addToCalculation('3')">3</button>
+              <button class="button1" (click)="calculate('-')">-</button>
+              <button class="button1" (click)="addToCalculation('0')">0</button>
+              <button class="button1" (click)="addToCalculation('.')">.</button>
+              <button class="button1" (click)="getTotal()">=</button>
+              <button class="button1"(click)="calculate('+')">+</button>
+            
+          </div>
+                  </span>
+     </div>
+     
+     <div class="col-md-12">
+        <button class="btn btn-primary" (click)="mode = 'quiz'">Quick Test</button>
+        <button class="btn btn-primary" routerLink="/test2">Exit Section</button>
+        <button class="btn btn-primary">Pause</button>
+        <button class="btn btn-primary" style="padding: 5px 10px !important">Mark
+        <input type="checkbox">
+        </button>
+        <button class="btn btn-primary" (click)="mode = 'review'">Review</button>
+        <button class="btn btn-primary" (click)="onSubmit()">Submit Test</button>
+     </div>
+     <div class="row"></div>
+     <div id="quiz">
+        <hr />
+       
+        <div *ngIf="mode=='quiz' && quiz" style="min-height: 350px; height: auto; background: white;">
+           <div *ngFor="let question of filteredQuestions;">
+              <div class="col-md-12">
+                  <div class="col-md-6 points_table_scrollbar" *ngIf="question.question_type_id != 3" style="height: 280px;
+                     font-size: 15px;
+                     position: relative;
+                     top: 17px;">
+                     <div *ngIf="question.question_type_id != 4">
+                     <div class="col-md-12">
+                        <p>{{pager.index + 1}} )
+                            <span [innerHTML]="question.paragraph" style="text-align: justify; line-height: 30px;height: 150px; position: relative; bottom: 30px; left: 20px;"></span>
+                           <span [innerHTML]="question.name" style="text-align: justify; line-height: 30px;height: 150px; position: relative; bottom: 30px; left: 20px;"></span>
+                        </p>
+                     </div>
+                     </div>
+                     <div *ngIf="question.question_type_id == 4" style="font-size: 15px;position: relative;">
+                          <p>{{pager.index + 1}} )
+                            <span [innerHTML]="question.paragraph" style="text-align: justify; line-height: 30px;height: 150px;position: relative; bottom: 30px; left: 20px;"></span>
+                            <b [innerHTML]="question.name" style="text-align: justify; line-height: 30px;"></b>
+                          </p>
+                      </div>
+                  </div>
+                  <div class="col-md-12" *ngIf="question.question_type_id == 3" style="font-size: 15px;position: relative; position: relative; bottom: 30px; left: 20px;">
+                    <div class="col-md-12">
+                      <p>{{pager.index + 1}} )
+                        <span [innerHTML]="question.name" style="text-align: justify; line-height: 30px;height: 150px"></span>
+                      </p>
+                    </div>
+                  
+                  </div>
+                 
+              
+                  <div class="row text-left options">
+                     <div class="col-md-6" *ngFor="let option of question.options">
+                        <div *ngIf="question.question_type_id == 1">
+                           <div class="option">
+                              <label class="" [attr.for]="option.id">
+                                 <div class= "pract radio i-checks">
+                              <label>
+                              <input type="radio" name="173" class="radioS"><i></i><span style="color: #00c0ef;">{{option.is_answer}}</span>
+                              <span style="position: relative;font-size: 15px;bottom: 19px; left: 20px;" [innerHTML]="option.name"></span>
+                              </label>
+                              </div>
+                              </label>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6" *ngFor="let option of question.options">
+                        <div *ngIf="question.question_type_id == 2">
+                           <div class="option">
+                              <label class="" [attr.for]="option.id">
+                                 <div class="pract radio i-checks">
+                              <label>
+                              <input id="{{option.id}}" type="checkbox" name="radio" class="radioS"><i></i><span style="color: #00c0ef;">{{option.is_answer}}</span>
+                              <span style="position: relative;font-size: 15px;bottom: 19px; left: 20px;" [innerHTML]="option.name"></span>
+                              </label>
+                              </div>
+                              </label>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4" *ngFor="let option of question.options">
+                     <div *ngIf="question.question_type_id == 3">
+                      
+                           <div class="pract radio i-checks">
+                              <input type="radio" name="radioTriple1" class="radioD1" id="116-D1">
+                              <label for="116-D1">
+                                 <span [innerHTML]="option.name"></span>
+                              </label>
+                           </div>
+                        </div>
+                     </div>
+                   
+                     <div class="col-md-6" *ngFor="let option of question.options">
+                        <div *ngIf="question.question_type_id == 4">
+                           <div class="option">
+                              <label class="" [attr.for]="option.id">
+                                 <div class="pract radio i-checks">
+                              <label>
+                              <input id="{{option.id}}" type="radio" name="radio" class="radioS" >
+                              <i></i><span style="color: #00c0ef;">{{option.is_answer}}</span>
+                              <span style="position: relative;font-size: 15px;bottom: 19px; left: 20px;" [innerHTML]="option.name"></span>
+                              </label>
+                              </div>
+                              </label>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6" *ngFor="let option of question.options">
+                        <div *ngIf="question.question_type_id == 5">
+                           <div class="form-group">
+                              <div class="pract"><span style="color: #00c0ef;">{{option.is_answer}}</span>
+                                 <input type="text" class="ctext">
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-6" *ngFor="let option of question.options">
+                       <div *ngIf="question.question_type_id == 6">
+                          <div class="form-group">
+                             <div class="pract"><span style="color: #00c0ef;">{{option.is_answer}}</span>
+                               <textarea class="ctext"></textarea>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                     <div class="col-md-6" *ngFor="let option of question.options">
+                        <div *ngIf="question.question_type_id == 7">
+                           <span [innerHTML]="question.paragraph"></span>
+                           <div class="form-group">
+                              <div class="pract"><span style="color: #00c0ef;">{{option.is_answer}}</span>
+                                 <textarea rows="15" cols="80" class="ctext"></textarea>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+
+
+
+
+           </div>
+           <div class="text-sm-center">
+              <!-- <pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination> -->
+           </div>
+        </div>
+        <div class="row review" *ngIf="mode=='review'" style="padding: 45px;line-height: 30px;">
+           <div class="col-sm-2" *ngFor="let question of quiz.questions; let index = index;">
+              <div (click)="goTo(index)" class="{{ isAnswered(index) == 'Answered'? 'answered': 'not-answered' }}">{{index + 1}}. {{ isAnswered(index) }}</div>
+           </div>
+        </div>
+     </div>
+     <div class="result" *ngIf="mode=='result'">
+        <div *ngFor="let question of quiz.questions; let index = index">
+           <div class="result-question">
+              <p>{{index + 1}}. <span [innerHTML]="question.name"></span></p>
+              <div class="row">
+                 <div class="col-md-6" *ngFor="let Option of question.options">
+                    <input id="{{Option.id}}" type="checkbox" name="radio" class="radioS" disabled="disabled" [(ngModel)]="Option.selected" /> 
+                    <i></i>
+                    <span  style="position: relative;font-size: 15px;bottom: 19px; left: 20px;" [innerHTML]="Option.name"></span>
+                  
+                 </div>
+              </div>
+              <div class="alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</div>
+           </div>
+        </div>
+        <p class="alert alert-info text-sm-center">You may close this window now.</p>
+     </div>
+     <div *ngIf="mode!='result'">
+     </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.white_text a{color:#000;}
+.white_text a:hover{color:#113f67;}
+.txt-black{color:#000 !important;}
+.vbg{color:#fff !important;background:#719fc1;}
+.item{text-align:center;height:200px;}
+.thumbnail{display:block;padding:4px;margin-bottom:20px;line-height:1.42857143;background-color:#0000;border:0px solid #ddd;border-radius:4px;-webkit-transition:border .2s ease-in-out;-o-transition:border .2s ease-in-out;transition:border .2s ease-in-out;}
+.forgot-password{font-size:24px;text-align:center;margin-bottom:25px;font-weight:300;}
+.with-border{border-bottom:1px solid #f4f4f4;}
+@media only screen and (max-width:500px){body{background-color:lightblue;}
+}
+.navbar.transparent.navbar-inverse .navbar-inner{border-width:0px;-webkit-box-shadow:0px 0px;box-shadow:0px 0px;background-color:rgba(0,0,0,0.3)!important;}
+.login-page, .register-page{background:url("../images/top-slider2.jpg") no-repeat center center fixed;min-height: 637px;
+    width: 100%;
+    background-size: cover;
+    height: auto;}
+.navbar-inverse{background-color:rgba(0,0,0,0)!important;border-color:#080808;}
+
+.center{text-align:center;}
+img.center{display:block;margin:0 auto;position:relative;top:100px;}
+.imgBgLogReg{background:url('../images/top-slider2.jpg') no-repeat center center fixed;height:100%;background-size:cover;height:-webkit-fill-available;top:-2.8em;position:relative;}
+.container{width:100%;padding:0;}.white_text a{color:#000;}
+.white_text a:hover{color:#113f67;}
+.txt-black{color:#000 !important;}
+.vbg{color:#fff !important;background:#719fc1;}
+.item{text-align:center;height:200px;}
+.thumbnail{display:block;padding:4px;margin-bottom:20px;line-height:1.42857143;background-color:#0000;border:0px solid #ddd;border-radius:4px;-webkit-transition:border .2s ease-in-out;-o-transition:border .2s ease-in-out;transition:border .2s ease-in-out;}
+.forgot-password{font-size:24px;text-align:center;margin-bottom:25px;font-weight:300;}
+.with-border{border-bottom:1px solid #f4f4f4;}
+@media only screen and (max-width:500px){body{background-color:lightblue;}
+}
+.navbar.transparent.navbar-inverse .navbar-inner{border-width:0px;-webkit-box-shadow:0px 0px;box-shadow:0px 0px;background-color:rgba(0,0,0,0.3)!important;}
+.login-page, .register-page{background:url("../images/top-slider2.jpg") no-repeat center center fixed;min-height: 635px;
+    width: 100%;
+    background-size: cover;
+    height: auto;}
+.navbar-inverse{background-color:rgba(0,0,0,0)!important;border-color:#080808;}
+
+.center{text-align:center;}
+img.center{display:block;margin:0 auto;position:relative;top:100px;}
+.imgBgLogReg{background:url('../images/top-slider2.jpg') no-repeat center center fixed;height:100%;background-size:cover;height:-webkit-fill-available;top:-2.8em;position:relative;}
+.container{width:100%;padding:0;}
+
+
+.choose-area {
+    /* background: url('../images/evgen-bryl-226331-unsplash.jpg'); */
+    overflow: hidden;
+    position: relative;
+    min-height: 500px;
+    height: auto;
+    left: 25px;
+  }

@@ -1,0 +1,29 @@
+
+<div class="row login-page">
+  <div class="hold-transition lockscreen">
+    <!-- Automatic element centering -->
+    <div class="skin-yellow forgot-page">
+        <div class="box-forgot">
+            <div class="box-forgot-body">
+                <h3><span style="color: #0e2027;"><b style="color: #ed1c24;">GT</b>Softprep</span></h3>
+                <p class="box-forgot-msg">Enter your e-mail address below to reset your password.</p>
+                <form (submit)="onRegisterSubmit()" class="forgot-form">
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="fa fa-envelope mycolor"></i></span>
+                        <input type="Email" class="form-control" [(ngModel)]="email" name="email" placeholder="Enter Registration Email Id">                                   
+                     </div>
+                    <div class="form-group form-action">
+                        <button type="submit" class="btn btn-block">Reset My Password</button>
+                    </div>
+                    <div class="form-group text-center">
+                        <a routerLink="/login">Sign in</a>&nbsp;|&nbsp;<a href="#">Support</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>   
+    </div>
+  </div>
+
+
+  

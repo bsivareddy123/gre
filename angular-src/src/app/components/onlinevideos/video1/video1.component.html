@@ -1,0 +1,66 @@
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+  <div class="wrapper">
+     <app-header></app-header>
+     <!-- Content Wrapper. Contains page content -->
+     <div class="content-wrapper" id="content">
+        <section class="content">
+           <div class="container-fluid" id="page-body">
+              <div class="box" style="min-height: 521px;">
+                 <div class="box-header">
+                    <section class="content-header">
+                       <h1>Category Wise Sub-Lessons</h1>
+                       <hr>
+                    </section>
+                 </div>
+                 <div class="col-md-1">
+                    <button routerLink="/videos" class="actionButton skipTextButton" style="background-color: #337ab7; opacity: 1; transform: scaleX(1) scaleY(1);"></button>
+                 </div>
+                 <div class="col-md-11">
+                    <div id="lessonsView" class="lessonPanel view" style="z-index: 102; display: block;">
+                       <div *ngFor ="let lesson of videos">
+                          <div *ngIf="lesson.is_open == true">
+                             <div class="appLesson checkpoint active" style="opacity: 1; transform: translateY(0px);">
+                                <!-- <div class="number">
+                                   <span class="label label-danger">8</span>
+                                   </div> -->
+                                <div class="name">{{lesson.titlelink}}</div>
+                                <div class="rating">
+                                   <a [routerLink]="['/videoview/subcatid', lesson.id]"><img class="gif" src="https://zippy.gfycat.com/LameDisfiguredFawn.gif" width="30" height="30"></a>
+                                </div>
+                                <div class="info">
+                                   <span class="cl-effect-10">
+                                   <a href="#" data-hover="Start Test"><span>{{lesson.titlelink}}  <i class="icon"></i> </span></a>
+                                   </span>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                       <div *ngFor ="let lesson of videos">
+                          <div *ngIf="lesson.is_open == false">
+                             <div class="appLesson checkpoint disabled gray" style="opacity: 1; transform: translateY(0px);">
+                                <!-- <div class="number">
+                                   <span class="label label-default">8</span>
+                                   </div> -->
+                                <div class="name">{{lesson.titlelink}}</div>
+                                <div class="rating">
+                                   <a [routerLink]="['/videoview/subcatid', lesson.id]"><img src="https://zippy.gfycat.com/LameDisfiguredFawn.gif" width="30" height="30"></a>
+                                </div>
+                                <div class="info">
+                                   <i class="icon"></i>
+                                   <span>
+                                      {{lesson.titlelink}}
+                                      <!-- <a href="#" data-hover="Start Test"><span>{{lesson.titlelink}}  <i class="icon"></i> </span></a> -->
+                                   </span>
+                                </div>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </section>
+     </div>
+  </div>
+  <!-- ./wrapper -->
+</body>
